@@ -1,0 +1,15 @@
+[package]
+name = "mp-network"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+mp-common = { workspace = true }
+
+tokio = { workspace = true, features = ["full"] }
+serde = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+libp2p = { version = "0.51", features = ["tcp", "dns", "tokio", "noise", "yamux", "gossipsub"] }
+uuid = { workspace = true }

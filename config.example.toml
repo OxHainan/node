@@ -1,0 +1,32 @@
+# API Service Configuration - JSON-RPC
+[api]
+# JSON-RPC API bind address
+rpc_bind_address = "127.0.0.1:8545"
+# Maximum number of concurrent requests
+max_concurrent_requests = 100
+# Request timeout in seconds
+request_timeout = 30
+
+# Integrated REST API Configuration
+[rest_api]
+# REST API bind address
+rest_bind_address = "127.0.0.1:3000"
+# Admin interface bind address
+admin_bind_address = "127.0.0.1:3001"
+# Path to the API key database
+key_store_path = "./data/api_keys/api_keys.db"
+# Transaction timeout in seconds
+tx_timeout = 30
+
+# Node Configuration
+[node]
+node_id = 1
+log_level = "info"
+
+# Add other configuration sections as needed
+# [consensus]
+# [mempool]
+# [compute]
+# [executor]
+# [state]
+# [network] 

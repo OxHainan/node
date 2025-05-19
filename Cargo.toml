@@ -1,0 +1,93 @@
+[workspace.package]
+edition = "2021"
+description = "A TEE-native blockchain for Web2-style verifiable confidential smart contracts using Docker"
+repository = "https://github.com/oxhainan/node.git"
+
+[workspace]
+members = [
+    "crates/common",
+    "crates/consensus",
+    "crates/mempool",
+    "crates/container",
+    "crates/state",
+    "crates/network",
+    "crates/executor",
+    "crates/sdk",
+    "crates/gateway",
+    "crates/node-rest",
+    "crates/executor/engine",
+    "crates/derive",
+    "crates/node",
+    "crates/framework",
+    "crates/container/dstack",
+	"crates/primitives/pom",
+	"crates/primitives/poc",
+	"crates/primitives/ethereum", "crates/openai-proxy",
+]
+
+resolver = "2"
+
+[workspace.dependencies]
+# Workspace crates
+mp-consensus = { path = "crates/consensus" }
+mp-mempool = { path = "crates/mempool" }
+mp-container = { path = "crates/container" }
+mp-state = { path = "crates/state" }
+mp-network = { path = "crates/network" }
+mp-common = { path = "crates/common" }
+mp-sdk = { path = "crates/sdk" }
+mp-executor = { path = "crates/executor" }
+mp-gateway = { path = "crates/gateway" }
+mp-node-rest = { path = "crates/node-rest" }
+mp-derive = { path = "crates/derive" }
+mp-framework = { path = "crates/framework" }
+
+# Core dependencies
+tokio = { version = "1.44.0" }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+clap = { version = "4.3" }
+config = "0.15.9"
+serde = { version = "1.0.219" }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "2.0.12"
+futures = "0.3"
+hex = { version = "0.4.3" }
+log = "0.4"
+async-trait = "0.1.68"
+async-raft = "0.6.1"
+rand = "0.9"
+blst = "0.3.14"
+bincode = "2.0.1"
+uuid = { version = "1.3" }
+bytes = { version = "1.5" }
+chrono = { version = "0.4" }
+codec = { version = "3.6.12", default-features = false, package = "parity-scale-codec" }
+async-channel = "1.9"
+rlp = { version = "0.5.2", default-features = false }
+scale-codec = { package = "parity-scale-codec", version = "3.6.9", default-features = false, features = [
+	"derive",
+] }
+scale-info = { version = "2.9.0", default-features = false, features = [
+	"derive",
+] }
+ethereum = { version = "0.15.0", default-features = false, features = [
+	"with-serde",
+] }
+ethereum-types = { version = "0.14.1", default-features = false, features = [
+	"serialize",
+] }
+
+primitive-types = { version = "0.12.2", default-features = false }
+
+#Primitives
+mp-poc = { version = "0.1.0", path = "crates/primitives/poc", default-features = false }
+mp-pom = { version = "0.1.0", path = "crates/primitives/pom" , default-features = false }
+mp-ethereum = { version = "0.1.0", path = "crates/primitives/ethereum" , default-features = false }
+dstack = { path = "crates/container/dstack" }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

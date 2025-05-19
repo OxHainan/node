@@ -1,0 +1,40 @@
+[package]
+name = "mp-sdk"
+version = "0.1.0"
+edition.workspace = true
+description = "SDK for interacting with blockchain"
+license = "MIT"
+
+# We need to split this into a procedural macro crate and a standard crate
+# For now, disable proc-macro to allow compilation
+[lib]
+proc-macro = false
+
+[dependencies]
+mp-common = { workspace = true }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+uuid = { workspace = true }
+chrono = { workspace = true }
+async-trait = { workspace = true }
+base64 = "0.21"
+
+# Procedural macros dependencies
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full", "extra-traits"] }
+diesel = { version = "2.1", features = ["sqlite", "r2d2"], optional = true }
+r2d2 = { version = "0.8", optional = true }
+
+[dev-dependencies]
+tracing-subscriber = "0.3"
+
+[features]
+default = ["local-storage"]
+local-storage = ["diesel", "r2d2"]
+remote-storage = []

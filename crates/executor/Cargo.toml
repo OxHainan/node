@@ -1,0 +1,35 @@
+[package]
+name = "mp-executor"
+version = "0.1.0"
+edition.workspace = true
+description = "Execution engine for mp node"
+
+[dependencies]
+anyhow = { workspace = true }
+async-trait = "0.1"
+futures = { workspace = true }
+log = { workspace = true }
+rmp-serde = "1.1"
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+mp-poc = { workspace = true }
+http = "0.2.12"
+
+
+# Internal crates
+mp-common = { workspace = true }
+mp-container = { workspace = true }
+# mp-executor-engine = { path = "./engine" }
+
+[features]
+default = ["local"]
+local = []
+docker = []
+
+[dev-dependencies]
+tokio-test = "0.4"

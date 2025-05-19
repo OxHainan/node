@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web2_style:
+    image: mpnetwork/web2_style:latest
+    ports:
+      - "8030:8080"
+    restart: always

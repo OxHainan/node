@@ -1,0 +1,23 @@
+[package]
+name = "mp-mempool"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+mp-common = { workspace = true }
+mp-consensus = { workspace = true }
+
+tokio = { workspace = true, features = ["full"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+jsonrpsee = { version = "0.16", features = ["server", "macros"] }
+futures = { workspace = true }
+base64 = "0.13"
+async-trait = "0.1.68"
+chrono = { workspace = true }
+uuid = { workspace = true }
+mp-poc = {workspace = true}
+http = "0.2.12"

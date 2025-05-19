@@ -1,0 +1,29 @@
+[package]
+name = "mp-poc"
+version = "0.1.0"
+license = "Apache-2.0"
+description = "Primitives for poc."
+edition = { workspace = true }
+repository = { workspace = true }
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rlp = { workspace = true, features = ["derive"] }
+ethereum-types = { workspace = true, features = ["rlp"] }
+sha3 = { version = "0.10.0", default-features = false }
+mp-ethereum = { workspace = true }
+blst = { workspace = true}
+rand = { workspace = true}
+anyhow = { workspace = true}
+hex = { workspace = true}
+serde = { workspace = true}
+serde_json = { workspace = true}
+hash-db = "0.16"
+
+[features]
+default = ["std"]
+std = [
+	"rlp/std",
+	"sha3/std",
+]

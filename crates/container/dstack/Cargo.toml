@@ -1,0 +1,25 @@
+[package]
+name = "dstack"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+tappd-rpc = {git = "https://github.com/Dstack-TEE/dstack.git", rev = "fc84ce1"}
+guest-api = {git = "https://github.com/Dstack-TEE/dstack.git", rev = "fc84ce1"}
+teepod-rpc = {git = "https://github.com/Dstack-TEE/dstack.git", rev = "fc84ce1"}
+http-client = {git = "https://github.com/Dstack-TEE/dstack.git", rev = "fc84ce1"}
+dstack-types = {git = "https://github.com/Dstack-TEE/dstack.git", rev = "fc84ce1"}
+async-trait = {workspace = true}
+anyhow = {workspace = true}
+serde_json = {workspace = true}
+tracing = {workspace = true}
+serde = {workspace = true}
+tokio = { workspace = true, features = ["full"] }
+uuid = { workspace = true, features = ["v4", "serde"] }
+serde_yaml = "0.9.33"
+parking_lot = "0.12.3"
+mp-common = { workspace = true }
+hex = "0.4.3"
+ethereum-types = { workspace = true, features = ["rlp", "codec", "scale-info"] }
+
+[dev-dependencies]

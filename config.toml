@@ -1,0 +1,93 @@
+[node]
+# Node ID
+node_id = 1
+# Log level: trace, debug, info, warn, error
+log_level = "debug"
+
+[consensus]
+# Consensus engine type
+engine_type = "raft"
+# Node ID
+node_id = 1
+# Nodes in the consensus network
+nodes = [
+    { id = 1, address = "127.0.0.1:7001" }
+]
+
+[consensus.raft]
+# Heartbeat interval (ms)
+heartbeat_interval = 500
+# Minimum election timeout (ms)
+election_timeout_min = 1500
+# Maximum election timeout (ms)
+election_timeout_max = 3000
+# Snapshot interval (log entries)
+snapshot_interval = 10000
+# Log storage path
+log_path = "./data/raft"
+
+[mempool]
+# Maximum transactions in mempool
+max_transactions = 10000
+# API server address
+api_address = "127.0.0.1:8545"
+# Maximum transaction size (bytes)
+max_tx_size = 1048576  # 1MB
+# Transaction timeout (seconds)
+tx_timeout = 60
+
+
+[container]
+# Container mode (simulated or cvm)
+container_mode = "simulated"
+# Maximum concurrent containers
+max_containers = 10
+# Container timeout (seconds)
+container_timeout = 30
+# Teepod API address
+teepod_host = "http://127.0.0.1:33001"
+# Tappd API address, only used in simulated mode
+tappd_host = "http://127.0.0.1:8090"
+
+[executor]
+# Number of worker threads for execution
+worker_threads = 4
+# Maximum queue size
+max_queue_size = 1000
+# Execution timeout (seconds)
+execution_timeout = 30
+# Maximum concurrent requests
+max_concurrent_requests = 10
+# Enable tracing for execution
+enable_tracing = true
+
+[state]
+# Database type: sqlite, postgres
+db_type = "sqlite"
+# Database connection string
+db_connection = "./data/state.db"
+# State root storage path
+state_root_path = "./data/state_root"
+
+[network]
+# Listen address
+listen_address = "127.0.0.1:9000"
+# Bootstrap nodes
+bootstrap_nodes = []
+
+
+[rest_api]
+# Path to API key store database
+key_store_path = "./data/api_keys/api_keys.db"
+# Bind address for the REST API
+rest_bind_address = "0.0.0.0:3000"
+# Bind address for the admin interface
+admin_bind_address = "0.0.0.0:3001"
+# Transaction timeout in seconds
+tx_timeout = 30
+
+[security]
+# Enable POC verification
+enable_poc = false
+# Enable POM verification
+enable_pom = false 

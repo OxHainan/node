@@ -1,0 +1,11 @@
+FROM rust:latest AS builder
+WORKDIR /app
+COPY . .
+RUN cargo build --release --example web2_style
+
+FROM ubuntu:latest
+
+COPY --from=builder /app/target/release/examples/web2_style /app/web2_style
+WORKDIR /app
+EXPOSE 8080
+CMD ["/app/web2_style"]
